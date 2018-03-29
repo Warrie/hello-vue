@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引用jQuery -->
+    <script src="/static/js/jquery.min.js"></script>
+
+    <!-- 引用Vue -->
+    <script src="/static/js/vue.js"></script>
+
+    <script>
+    // 初始化代码
+    $(function(){
+        var vm=new Vue({
+            el:'#vm',
+            data:{
+                name:'Lee',
+                age:'18'
+            }
+        });
+        window.vm=vm;
+
+        var fm=new Vue({
+            el:'#fm',
+            data:{
+                email:'',
+                name:''
+            },
+            methods:{
+                resiger:function(){
+                    alert(JSON.stringify(this.$data));
+                }
+            }
+        });
+        window.fm=fm;
+    })
+    </script>
+</head>
+<body>
+    <div id="vm">
+        <p>hello,{{name}}!</p>
+        <p>You are {{age}} years old!</p>
+        <p v-text="name"></p>
+    </div>
+    <p v-text="name"></p>
+    <form action="#" id="fm">
+        <p><input type="text" v-model="email"></p>
+        <p><input type="text" v-model="name"></p>
+    </form>
+</body>
+</html>
